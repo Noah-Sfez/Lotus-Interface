@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Profil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="./images/lotus-symbol.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Prompt:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Je mets comme un filtre pour foncer l'écran -->
+      <div class='overlay'></div>
+      <button class='button-menu profil-page'>Menu</button>
+      <header class="header nav-profil">
+        <nav class="nav-bar profil">
+          <a href="index.html" class="nav">Home</a>
+          <a href="" class="nav">Bookmarks</a>
+          <a href="profil.html" class="nav">Profil</a>
+          <a href="recherche.html" class="nav">Explore</a>
+          <a href="settings.html" class="nav">Settings</a>
+        </nav> 
+
+<!-- On retrouve le bouton flottant avec le modal qui est déjà présent dans la page d'accueil -->
+        <button id="myBtn" class="btn-modal">Tueets</button>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+          <span class="close">&times;</span>
+            <div class="prof-modal">
+                          </div>
+
+<!-- On a ici le form du modal -->
+            <form method="post">
+              <textarea name="tweet" cols="60" rows="7" class="modal-tweet monTweet" placeholder="What's happening ?" required></textarea>
+              <select name="genre" class="type_tweet" required>
+              <option value="">Type</option>
+                <option value="Sport" class="sport">Sport</option>
+                <option value="Politique" class="politique">Politique</option>
+                <option value="Musique" class="musique">Musique</option>
+                <option value="Divertissement" class="divertissement">Divertissement</option>
+                <option value="Cinéma" class="cinema">Cinéma</option>
+                <option value="Voyage" class="voyage">Voyage</option>
+                <option value="Cuisine" class="cuisine">Cuisine</option>
+                <option value="Art" class="art">Art</option>
+              </select>
+              <input type="file" accept="image/png, image/jpeg, image/gif" name="image_tweet" id="image_tweet" style="">
+              <input type="submit" value="Tuitts" class="tuitts-modal">
+            </form>
+          </div>
+        </div>
+
+<!-- en bas on retrouve en petit la photo de l'utilisateur ainsi que son pseudo, prénom et nom -->
+        <div class="profil">
+          <div class="img-profil">
+            <img src="https://picsum.photos/100/100" alt="" class="img-profil">
+          </div>
+          <div class="utilisateur">
+            <p>@Nono</p>
+            <p>Noah Sfez</p>
+          </div>
+        </div>
+      </header>
+    <main class="main-profil">
+      <div class="head-profil">
+<!-- Ici on a le milieu de la page avec la bannière de l'utilisateur qui est donc créé aléatoirement ainsi qu'avec sa photo de profil et son pseudo, prénom et nom -->
+        <div class="bio">
+          <img src="https://picsum.photos/100/100" alt="" class="banniere-profil">
+          <div class="head">
+            <img src="https://picsum.photos/100/100" alt="" class="head-img">
+            <h3 class="head-name">Noah Sfez</h3>
+            <p class="head-pseudo">@Nono</p>
+          </div>
+        </div>
+<!-- Ici on retrouve les boutons de filtre de tag qui se place au dessus des posts en format mobile mais qui sont cachés en format ordinateur-->
+        <div class="lost">
+          <div class="filter-buttons">
+            <button class="filter-btn buttons-all sport" data-tag="Sport">Sport</button>
+            <button class="filter-btn buttons-all politique" data-tag="Politique">Politique</button>
+            <button class="filter-btn buttons-all musique" data-tag="Musique">Musique</button>
+            <button class="filter-btn buttons-all divertissement" data-tag="Divertissement">Divertissement</button>
+            <button class="filter-btn buttons-all cinema" data-tag="Cinéma">Cinéma</button>
+            <button class="filter-btn buttons-all voyage" data-tag="Voyage">Voyage</button>
+            <button class="filter-btn buttons-all cuisine" data-tag="Cuisine">Cuisine</button>
+            <button class="filter-btn buttons-all art" data-tag="Art">Art</button>
+            <button class="reset-filter resetButton">Reset</button>
+          </div>
+        </div>
+<!-- Ici on affiche uniquement les tweets de l'utilisateur connecté. On retrouve à chaque fois le tag du tweet, ainsi que l'heure à laquelle il a été tweeté -->
+        <div class="profil-tweet">
+          <div class="tweet_content Musique content-respo"><div class="pseudo_message"><span class="pseudo_tweet">Nono</span><br><span class="message_tweet">j'adore jouer de la guitare avec mes amis !</span><br><img src="./stockfile/" alt="" class="image-tweet"></div><div class="date_supprimer">2023-05-31 11:19:23<br><a href="?id_tweet=319"><img src="./images/poubelle.png" alt="Supprimer" class="poubelle"></a><br><br><div class="type_response">Musique</div></div></div><!-- Ici on retrouve le modale de confirmation pour supprimer le tweet sélectionné -->
+          <div id="confirm-modal-delete">
+            <div class="confirm-modal-content">
+              <p class="confirm-quest">Voulez-vous vraiment supprimer ce tweet ?</p>
+                <div class="button-modal-delete">
+                  <a href="#" id="cancel-modal-tweet">Annuler</a>
+<!-- Si l'utilisateur décide de supprimer le tweet, alors on redirige vers une autre page php avec dans l'url avec l'id du tweet que je souhaite supprimer -->
+                  <br />
+
+<a href="delete.php?supprimer=" class="confirm-delete-tweet">Supprimer</a>                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Ici on retrouve les boutons de tag qui n'apparaissent qu'en format ordinateur -->
+      <div class="last-profil">
+        <a href="inscription.html" class="deconnexion">Déconnexion</a>
+        <div class="filter-buttons">
+          <button class="filter-btn buttons-all buttons-noresp sport" data-tag="Sport">Sport</button>
+          <button class="filter-btn buttons-all buttons-noresp politique" data-tag="Politique">Politique</button>
+          <button class="filter-btn buttons-all buttons-noresp musique" data-tag="Musique">Musique</button>
+          <button class="filter-btn buttons-all buttons-noresp divertissement" data-tag="Divertissement">Divertissement</button>
+          <button class="filter-btn buttons-all buttons-noresp cinema" data-tag="Cinéma">Cinéma</button>
+          <button class="filter-btn buttons-all buttons-noresp voyage" data-tag="Voyage">Voyage</button>
+          <button class="filter-btn buttons-all buttons-noresp cuisine" data-tag="Cuisine">Cuisine</button>
+          <button class="filter-btn buttons-all buttons-noresp art" data-tag="Art">Art</button>
+        </div>
+        <button class="reset-filter resetButton noResp">Reset</button>
+      </div>
+      <select name="genre" id="nav_type" class="type_tweet type-tweet-hide" required></select>
+    </main>
+<script src="app.js"></script>
+<!-- Ici on ouvre une condition en php pour dire que si la variable php $tweet_id n'est pas vide, alors on execute le code Javascript ci-dessous -->
+</body>
+</html>

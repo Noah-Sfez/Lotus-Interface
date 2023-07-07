@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="./images/lotus-symbol.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Prompt:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class='overlay'></div>
+    <button class='button-menu profil-page'>Menu</button>
+    <header class="header">    
+<!-- J'affiche ici la barre de navigation -->
+            <nav class="nav-bar">
+                <a href="index.html" class="nav">Home</a>
+                <a href="" class="nav">Bookmarks</a>
+                <a href="profil.html" class="nav">Profil</a>
+                <a href="recherche.html" class="nav">Explore</a>
+                <a href="settings.html" class="nav">Settings </a> 
+            </nav> 
+<!-- J'affiche le modal qui est géré après avec du JavaScript -->
+            <button id="myBtn" class="btn-modal">Composer</button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="prof-modal">
+                                </div>
+<!-- Ici on retrouve le form qui est dans le modal pour gérer le post des tweets -->
+                <form method="post" enctype="multipart/form-data">
+                    <textarea name="tweet" id="messagemodal" cols="60" rows="7" class="modal-tweet monTweet" placeholder="What's happening ?" required></textarea>
+                    <select name="genre" class="type_tweet" required>
+                        <option value="">Type</option>
+                        <option value="Sport" class="sport">Sport</option>
+                        <option value="Politique" class="politique">Politique</option>
+                        <option value="Musique" class="musique">Musique</option>
+                        <option value="Divertissement" class="divertissement">Divertissement</option>
+                        <option value="Cinéma" class="cinema">Cinéma</option>
+                        <option value="Voyage" class="voyage">Voyage</option>
+                        <option value="Cuisine" class="cuisine">Cuisine</option>
+                        <option value="Art" class="art">Art</option>
+                    </select>
+                    <input type="file" accept=".png, .jpeg, .gif" name="image_tweet" class="media" id="image_tweet" style="">
+                    <input type="submit" value="Tuitts" class="tuitts-modal" id="bouton">
+                </form>
+                </div>
+            </div>
+<!-- Ici j'ai le code pour générer les photos et bannières de profil aléatoirement avec l'url rentrée dans la base de donnée -->
+            <!-- Ici on a le code qui affiche le nom de l'utilisateur ainsi que son pseudo et la photo de profil -->
+            <div class="profil">
+                <div class="img-profil">
+                    <a href="profil.php"><img src="https://picsum.photos/100/100" alt="" class="img-profil"></a>
+                </div>
+                <div class="utilisateur">
+                    <p>@Nono</p>
+                    <p>Noah Sfez</p>
+                </div>
+            </div>
+        </header>
+        <main class="main_recherche">
+            <div class="background-search">
+                <h1>Rechercher</h1>
+<!-- Dans cette première partie je vais m'occuper du système de recherche seulement pour les tweets -->
+                <div class="recherche-profil-tweet">
+                    <div class="recherche-tweets">
+                                                <div class="espace_recherche_tweet">
+                            <div class="title-form-tweet">
+                                <h2 class="title-rechercher">Recherchez vos tweets préférés</h2>
+<!-- On retrouve donc ici le form qui permet de faire la recherche -->
+                                <form method="get" class="form-recherche-tweet">
+                                    <input type="search" class="rech" name="value_recherche" placeholder="Mots clés...">
+                                    <label for="search-input-tweet" class="search-icon-label">
+                                        <i class="fa fa-search icone-rechercher"></i>
+                                    </label>
+                                    <input type="submit" id="search-input-tweet" class="rechercher" name="valider" value="Rechercher">
+                                </form>
+                            </div>
+                            <div class="affichage_tweet">
+                                <a href="user.php?profil=Clemar"><div class="message_recherche_tweet"><p class="pseudo_recherche">Clemar</p><p class="tweet_recherche">j'adore la pop</p><p class="date_recherche">2023-05-31 11:35:56 Musique</p></div></a><a href="user.php?profil=Nono"><div class="message_recherche_tweet"><p class="pseudo_recherche">Nono</p><p class="tweet_recherche">j'adore jouer de la guitare avec mes amis !</p><p class="date_recherche">2023-05-31 11:19:23 Musique</p></div></a><a href="user.php?profil=JoshGoz"><div class="message_recherche_tweet"><p class="pseudo_recherche">JoshGoz</p><p class="tweet_recherche">Eh les boys, j'arrive sur Lotus. </p><p class="date_recherche">2023-05-18 18:00:15 Divertissement</p></div></a><a href="user.php?profil=Carlita"><div class="message_recherche_tweet"><p class="pseudo_recherche">Carlita</p><p class="tweet_recherche">Vous connaissez ces bagues ? C'est une merveille de la technologie ! </p><p class="date_recherche">2023-05-07 17:58:14 Art</p></div></a><a href="user.php?profil=Carlita"><div class="message_recherche_tweet"><p class="pseudo_recherche">Carlita</p><p class="tweet_recherche">J'ai trop envie de retourner au Brésil l'année prochaine !</p><p class="date_recherche">2023-05-01 21:36:32 Voyage</p></div></a><a href="user.php?profil=salomesfz"><div class="message_recherche_tweet"><p class="pseudo_recherche">salomesfz</p><p class="tweet_recherche">hate de retourner à disney</p><p class="date_recherche">2023-04-09 20:46:01 Divertissement</p></div></a><a href="user.php?profil=Sissou"><div class="message_recherche_tweet"><p class="pseudo_recherche">Sissou</p><p class="tweet_recherche">J'adore regarder Les Reines du Shopping à la télé</p><p class="date_recherche">2023-04-09 19:53:42 Divertissement</p></div></a><a href="user.php?profil=Quentyn"><div class="message_recherche_tweet"><p class="pseudo_recherche">Quentyn</p><p class="tweet_recherche">coucou, j'adore les manifs</p><p class="date_recherche">2023-04-07 20:48:14 Politique</p></div></a><a href="user.php?profil=Benjos"><div class="message_recherche_tweet"><p class="pseudo_recherche">Benjos</p><p class="tweet_recherche">Il y a une nouvelle exposition d'art sur le theme de Marvel, j'aimerai trop la voir !</p><p class="date_recherche">2023-04-02 14:29:33 Art</p></div></a><a href="user.php?profil=Benjos"><div class="message_recherche_tweet"><p class="pseudo_recherche">Benjos</p><p class="tweet_recherche">J'ai une nouvelle recette de gateau que j'ai trop envie de tester !!!</p><p class="date_recherche">2023-04-02 14:28:48 Cuisine</p></div></a><a href="user.php?profil=Benjos"><div class="message_recherche_tweet"><p class="pseudo_recherche">Benjos</p><p class="tweet_recherche">J'ai trop envie d'aller au concert de Stromae en Juin !!! Mais les places sont toutes prises ...</p><p class="date_recherche">2023-04-02 14:28:02 Musique</p></div></a><a href="user.php?profil=Garzra"><div class="message_recherche_tweet"><p class="pseudo_recherche">Garzra</p><p class="tweet_recherche">Vous avez vu le nouveau Avatar 2 ? Moi toujours pas !</p><p class="date_recherche">2023-04-02 14:27:22 Cinéma</p></div></a><a href="user.php?profil=Sissou"><div class="message_recherche_tweet"><p class="pseudo_recherche">Sissou</p><p class="tweet_recherche">J'ai hâte que roland garros reprenne !</p><p class="date_recherche">2023-04-02 13:26:36 Sport</p></div></a><a href="user.php?profil=Quentyn"><div class="message_recherche_tweet"><p class="pseudo_recherche">Quentyn</p><p class="tweet_recherche">Et vous ? pour ou contre le 49.3 ?</p><p class="date_recherche">2023-04-02 13:07:40 Politique</p></div></a>                            </div>
+                        </div>
+                    </div>
+                    <div class="recherche-profil">
+                                            <div class="espace_recherche_user">
+                        <h2 class="title-rechercher">Recherchez vos profils favoris</h2>
+                            <form method="get" class="form-recherche-user" name="fo">
+                                <input type="search" class="rech" name="value_recherche_user" placeholder="Pseudo, prénom, nom...">
+                                <label for="search-input" class="search-icon-label">
+                                    <i class="fa fa-search icone"></i>
+                                </label>
+                                <input type="submit" id="search-input" class="rechercher" name="valider" value="Rechercher">
+                                
+                            </form>
+
+                            <div class="affichage_user">
+                            <a href="user.php?profil=Phiale"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Phiale </p><p class="prenom_nom">Philippe Alves</p></div></div></a><a href="user.php?profil=Garzra"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Garzra </p><p class="prenom_nom">Flavio Leon</p></div></div></a><a href="user.php?profil=Quentyn"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Quentyn </p><p class="prenom_nom">Quentin Dalat</p></div></div></a><a href="user.php?profil=Clemar"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Clemar </p><p class="prenom_nom">Clement Batonnier</p></div></div></a><a href="user.php?profil=Sissou"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Sissou </p><p class="prenom_nom">Annabel Sfez</p></div></div></a><a href="user.php?profil=Benjos"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Benjos </p><p class="prenom_nom">Benjamin  Bouilland</p></div></div></a><a href="user.php?profil=JJ"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">JJ </p><p class="prenom_nom">Jean-Jacques Zibi</p></div></div></a><a href="user.php?profil=Annasfz78"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Annasfz78 </p><p class="prenom_nom">Anna Sfez</p></div></div></a><a href="user.php?profil=salomesfz"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">salomesfz </p><p class="prenom_nom">Salomé Sfez</p></div></div></a><a href="user.php?profil=Carlita"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Carlita </p><p class="prenom_nom">Carla De Siqueira</p></div></div></a><a href="user.php?profil=JoshGoz"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">JoshGoz </p><p class="prenom_nom">Joshua Gozlan</p></div></div></a><a href="user.php?profil=Miko"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Miko </p><p class="prenom_nom">Michael Sfez</p></div></div></a><a href="user.php?profil=Nono"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Nono </p><p class="prenom_nom">Noah Sfez</p></div></div></a><a href="user.php?profil=Clemar"><div class="message_recherche_user"><div><i class="fa fa-user icone-recherche-profil"></i></div><div class="message-prenom"><p class="user_recherche">Clemar </p><p class="prenom_nom">Clement Batonnier</p></div></div></a>                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script>
+/* Pour éviter des erreurs javascript, j'ai préféré mettre le code de la nav bar diretement sur la page */ 
+            const navButton = document.querySelector('.button-menu');
+            const navBar = document.querySelector('.nav-bar');
+            const overlay = document.querySelector('.overlay');
+
+            navButton.addEventListener('click', function(){
+            navBar.classList.toggle('active');
+            overlay.classList.toggle('show');
+            })
+        </script>
+</body>
+</html>
